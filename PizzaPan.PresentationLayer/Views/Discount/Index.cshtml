@@ -1,0 +1,40 @@
+﻿@model List<Discount>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Kupon Listesi</h1>
+
+<table class="table table-bordered">
+    <tr>
+       
+        <th>Kupon Kodu</th>
+        <th>Kupon Sayısı</th>
+        <th>Kupon Son Tarihi</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.EndingDate < DateTime.Now)
+        {
+            <tr style="background-color:orangered">
+
+                <td>@item.DiscountCode</td>
+                <td>@item.DiscountCount</td>
+                <td>@(((DateTime)item.EndingDate).ToString("dd-MMM-yyyy"))</td>
+            </tr>
+}
+        else
+        {
+            <tr style="background-color:lightblue">
+                <td>@item.DiscountCode</td>
+                <td>@item.DiscountCount</td>
+                <td>@(((DateTime)item.EndingDate).ToString("dd-MMM-yyyy"))</td>
+            </tr>
+}
+    }
+    
+</table>
+
+<a href="/Discount/CreateCode/" class="btn btn-dark">Kod oluştur</a>

@@ -1,0 +1,18 @@
+﻿@model List<ProductImage>
+@{
+    ViewData["Title"] = "ImageList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Galeri</h1>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 col-sm-6 col-6">
+            <div class="courses-item">
+                <img src="@item.ImageUrl" width="250" height="250"><br />
+            </div>
+
+        </div>}
+</div>

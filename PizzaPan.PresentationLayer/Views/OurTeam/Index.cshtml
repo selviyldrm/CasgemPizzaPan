@@ -1,0 +1,30 @@
+﻿@model List<OurTeam>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Takım Listemiz</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Ad Soyad</th>
+        <th>Başlık</th>
+        <th>Resim</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.OurTeamID</td>
+    <td>@item.Name @item.Surname</td>
+    <td>@item.Title</td>
+    <td><img src="@item.ImageUrl" width="50" height="50" /> </td>
+    <td><a href="/OurTeam/DeleteOurTeam/@item.OurTeamID" class="btn btn-danger">Sil</a></td>
+    <td><a href="/OurTeam/UpdateOurTeam/@item.OurTeamID" class="btn btn-success">Güncelle</a></td>
+</tr>
+    }
+</table>
+<a href="/OurTeam/AddOurTeam/" class="btn btn-dark">Yeni Takım Üyesi Ekle</a>

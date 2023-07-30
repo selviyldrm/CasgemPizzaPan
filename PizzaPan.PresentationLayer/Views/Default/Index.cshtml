@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="en">
+
+@await Component.InvokeAsync("_HeadPartial")
+
+<body>
+    <!--header-->
+    @await Component.InvokeAsync("_NavbarPartial")
+    <!--/header-->
+    <!-- Domain Modal -->
+    @await Component.InvokeAsync("_ModalPartial") 
+    <!-- //Domain modal -->
+    @await Component.InvokeAsync("_FeaturePartial")
+    <!-- iphone home block -->
+  @await Component.InvokeAsync("_AboutPartial")
+    <!-- //iphone home block -->
+    @await Component.InvokeAsync("_DescriptionPartial") 
+    @await Component.InvokeAsync("_GalleryPartial")
+    @await Component.InvokeAsync("_ProductPartial")
+
+    <!--/testimonials-->
+    @await Component.InvokeAsync("_TestimonialPartial")
+    <!--//testimonials-->
+    <!-- footers 20 -->
+    @await Component.InvokeAsync("_FooterPartial")
+
+    @await Component.InvokeAsync("_ScriptPartial")
+
+</body>
+
+</html>
